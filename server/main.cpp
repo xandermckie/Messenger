@@ -21,3 +21,30 @@ Process Management: systemd
 VPS Provider: DigitalOcean/Linode
 
 */
+#include <uWebSockets/App.h>
+#include <iostream>
+#include <unordered_map>
+
+int main() {
+    std::cout << "Starting server...\n";
+
+    uWS::App().ws<std::string>("/*", {
+        .open = [](auto *ws) {
+            std::cout << "Client connected!\n";
+        },
+        .message = [](auto *ws, std::string_view message, uWS::OpCode opCode) {
+            std::cout << "Received: " << message << "\n";
+            ws->send(message, opCode); // Echo the message back
+        },
+        .close = [](auto *ws, int code, std::string_view message) {
+            std::cout << "Client disconnected!\n";
+        }
+    }).listen(3000, [](auto *listen_socket) {
+        if (listen_socket) {
+            std::cout << "Server is LIVE on port 3000!\n";
+        }
+    }).run();
+
+    std::cout << "Server stopped.\n";
+    return 0;
+}
