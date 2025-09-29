@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My App Test</title>
+</head>
+<body>
+    <button onclick="connect()">Connect</button>
+    <input id="messageInput" placeholder="Type a message...">
+    <button onclick="send()">Send</button>
+    <div id="log"></div>
+
+    <script>
+        let ws = null;
+        function connect() {
+            ws = new WebSocket('ws://localhost:3000');
+            ws.onopen = () => log('Connected!');
+            ws.onmessage = (event) => log('Received: ' + event.data);
+            ws.onerror = (error) => log('Error: ' + error);
+        }
+        function send() {
+            const input = document.getElementById('messageInput');
+            if (ws && input.value) {
+                ws.send(input.value);
+                log('Sent: ' + input.value);
+                input.value = '';
+            }
+        }
+        function log(message) {
+            const logDiv = document.getElementById('log');
+            logDiv.innerHTML += '<p>' + message + '</p>';
+        }
+    </script>
+</body>
+</html>

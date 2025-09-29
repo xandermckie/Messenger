@@ -1,0 +1,149 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #36393f;
+    color: #dcddde;
+    height: 100vh;
+    display: flex;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 240px;
+    background-color: #2f3136;
+    display: flex;
+    flex-direction: column;
+}
+
+.server-header {
+    padding: 16px;
+    border-bottom: 1px solid #202225;
+    font-weight: bold;
+}
+
+.channels {
+    flex: 1;
+    padding: 16px;
+}
+
+.channel {
+    padding: 8px;
+    margin: 4px 0;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.channel:hover {
+    background-color: #3c3f45;
+}
+
+.channel.active {
+    background-color: #42464d;
+}
+
+/* Main Chat Area */
+.main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-header {
+    padding: 16px;
+    border-bottom: 1px solid #202225;
+    font-weight: bold;
+}
+
+.messages {
+    flex: 1;
+    padding: 16px;
+    overflow-y: auto;
+}
+
+.message {
+    margin-bottom: 16px;
+}
+
+.message-user {
+    font-weight: bold;
+    color: #fff;
+}
+
+.message-content {
+    margin-top: 4px;
+}
+
+/* Input Area */
+.input-area {
+    padding: 16px;
+    background-color: #40444b;
+    border-radius: 8px;
+    margin: 16px;
+}
+
+.message-input {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    color: #dcddde;
+    font-size: 16px;
+    outline: none;
+}
+
+.message-input::placeholder {
+    color: #72767d;
+}
+
+/* Buttons */
+.btn {
+    background-color: #5865f2;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 4px;
+}
+
+.btn:hover {
+    background-color: #4752c4;
+}
+
+.btn-secondary {
+    background-color: #4f545c;
+}
+
+.btn-secondary:hover {
+    background-color: #5d6269;
+}
+
+/* Login Form */
+.login-form {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #2f3136;
+    padding: 32px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.login-input {
+    background-color: #40444b;
+    border: none;
+    color: #dcddde;
+    padding: 12px;
+    border-radius: 4px;
+    margin: 8px 0;
+    width: 100%;
+}
+
+.hidden {
+    display: none;
+}
