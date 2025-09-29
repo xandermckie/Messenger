@@ -1,34 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>My App Test</title>
+    <title>Messenger App</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <button onclick="connect()">Connect</button>
-    <input id="messageInput" placeholder="Type a message...">
-    <button onclick="send()">Send</button>
-    <div id="log"></div>
+    <!-- Login Form -->
+    <div id="loginForm" class="login-form">
+        <h2>Join Messenger</h2>
+        <input type="text" id="usernameInput" class="login-input" placeholder="Enter your username" maxlength="32">
+        <button id="loginBtn" class="btn">Join Chat</button>
+    </div>
 
-    <script>
-        let ws = null;
-        function connect() {
-            ws = new WebSocket('ws://localhost:3000');
-            ws.onopen = () => log('Connected!');
-            ws.onmessage = (event) => log('Received: ' + event.data);
-            ws.onerror = (error) => log('Error: ' + error);
-        }
-        function send() {
-            const input = document.getElementById('messageInput');
-            if (ws && input.value) {
-                ws.send(input.value);
-                log('Sent: ' + input.value);
-                input.value = '';
-            }
-        }
-        function log(message) {
-            const logDiv = document.getElementById('log');
-            logDiv.innerHTML += '<p>' + message + '</p>';
-        }
-    </script>
+    <!-- Main App (hidden until login) -->
+    <div id="app" class="hidden">
+        <div class="sidebar">
+            <div class="server-header">Messenger</div>
+            <div class="channels">
+                <div class="channel active"># general</div>
+                <div class="channel"># music</div>
+                <div class="channel"># gaming</div>
+            </div>
+            <div class="user-info">
+                <div id="currentUserDisplay">User</div>
+            </div>
+        </div>
+
+        <div class="main">
+            <div class="chat-header"># general</div>
+            <div id="messages" class="messages"></div>
+            <div class="input-area">
+                <input type="text" id="messageInput" class="message-input" placeholder="Type a message..." maxlength="2000">
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
 </body>
 </html>
