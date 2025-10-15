@@ -138,7 +138,7 @@ class MessengerApp {
         messageDiv.innerHTML = `
             <div class="message-user">${user}</div>
             <div class="message-content">${this.escapeHtml(content)}</div>
-            <div class="message-time">${time}</div>
+            <div class="message-time">${time}</div> 
         `;
         
         messagesDiv.appendChild(messageDiv);

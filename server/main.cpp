@@ -53,7 +53,7 @@ private:
     std::unordered_set<connection_hdl, std::hash<connection_hdl>> m_connections;
 };
 
-int main() {
+int main() { //still getting error why tho
     try {
         WebSocketServer server;
         server.run(3000);
