@@ -122,7 +122,7 @@ body {
     background-color: #5d6269;
 }
 
-/* Login Form need to add connecting email  */
+/* Login Form need to add connecting email allow all emails */
 .login-form {
     position: fixed;
     top: 50%;
