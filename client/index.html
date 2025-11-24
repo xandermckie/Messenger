@@ -1,36 +1,72 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Messenger App</title>
+    <title>Music Messenger 🎵</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- Login Form -->
     <div id="loginForm" class="login-form">
-        <h2>Join Messenger</h2>
+        <h2>🎵 Music Messenger</h2>
+        <p>Connect with friends through music</p>
         <input type="text" id="usernameInput" class="login-input" placeholder="Enter your username" maxlength="32">
-        <button id="loginBtn" class="btn">Join Chat</button>
+        <button id="loginBtn" class="btn">Join Music Chat</button>
     </div>
 
-    <!-- Main App (hidden until login) -->
+    <!-- Main App -->
     <div id="app" class="hidden">
+        <!-- Sidebar -->
         <div class="sidebar">
-            <div class="server-header">Messenger</div>
-            <div class="channels">
-                <div class="channel active"># general</div>
-                <div class="channel"># music</div>
-                <div class="channel"># gaming</div>
+            <div class="server-header">
+                🎵 Music Messenger
             </div>
+            
+            <!-- Now Playing Section -->
+            <div class="now-playing">
+                <h4>🎧 Now Playing</h4>
+                <div id="nowPlayingList"></div>
+            </div>
+            
+            <!-- Compatibility Section -->
+            <div class="compatibility">
+                <div id="compatibilityScores">
+                    <h4>Music Compatibility</h4>
+                    <div class="compatibility-item">
+                        <div>Connect Spotify to see compatibility</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- User Info -->
             <div class="user-info">
-                <div id="currentUserDisplay">User</div>
+                <div class="username" id="currentUserDisplay">User</div>
+                <div class="spotify-status" id="spotifyStatus">Spotify: Not Connected</div>
+                <button id="connectSpotifyBtn" class="btn btn-spotify" style="margin-top: 10px; width: 100%;">
+                    Connect Spotify
+                </button>
+                <button id="shareCurrentSongBtn" class="btn btn-share" style="margin-top: 5px; width: 100%;">
+                    Share Current Song
+                </button>
             </div>
         </div>
 
+        <!-- Main Chat Area -->
         <div class="main">
-            <div class="chat-header"># general</div>
-            <div id="messages" class="messages"></div>
+            <div class="chat-header">
+                # music-chat
+            </div>
+            
+            <div id="messages" class="messages">
+                <div class="message system-message">
+                    <div class="message-content">Welcome to Music Messenger! Connect Spotify to share what you're listening to.</div>
+                </div>
+            </div>
+            
             <div class="input-area">
-                <input type="text" id="messageInput" class="message-input" placeholder="Type a message..." maxlength="2000">
+                <div class="input-container">
+                    <input type="text" id="messageInput" class="message-input" placeholder="Type a message or share music..." maxlength="2000">
+                    <button id="sendBtn" class="btn">Send</button>
+                </div>
             </div>
         </div>
     </div>

@@ -1,5 +1,6 @@
 @echo off
-echo Building Messenger server...
+echo Building Music Messenger Server...
+echo.
 
 set CXX=g++
 set CXXFLAGS=-std=c++17 -O3 -IC:/msys64/ucrt64/include
@@ -8,13 +9,21 @@ set LIBS=-l uWS -l ssl -l z -l uv
 set SOURCES=main.cpp
 set OUTPUT=server.exe
 
-echo Compiling...
+echo Compiling music messenger server...
 %CXX% %CXXFLAGS% %SOURCES% -o %OUTPUT% %LDFLAGS% %LIBS%
 
 if %errorlevel% equ 0 (
-    echo Build successful! Output: %OUTPUT%
-    echo Run .\%OUTPUT% to start the server
+    echo.
+    echo 🎵 Build successful! 🎵
+    echo Server: %OUTPUT%
+    echo.
+    echo To start the server:
+    echo   .\%OUTPUT%
+    echo.
+    echo Then open client/index.html in your browser!
 ) else (
-    echo Build failed!
+    echo.
+    echo ❌ Build failed!
+    echo.
     pause
 )

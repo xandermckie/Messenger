@@ -6,144 +6,299 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #36393f;
-    color: #dcddde;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: #ffffff;
     height: 100vh;
     display: flex;
 }
 
-/* Sidebar */
+/* Login Form */
+.login-form {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(47, 49, 54, 0.95);
+    padding: 40px;
+    border-radius: 12px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    border: 1px solid #5865f2;
+}
+
+.login-input {
+    background: #40444b;
+    border: 2px solid #5865f2;
+    color: #ffffff;
+    padding: 15px;
+    border-radius: 8px;
+    margin: 15px 0;
+    width: 100%;
+    font-size: 16px;
+}
+
+.login-input:focus {
+    outline: none;
+    border-color: #7289da;
+}
+
+/* Main Layout */
 .sidebar {
-    width: 240px;
-    background-color: #2f3136;
+    width: 280px;
+    background: rgba(47, 49, 54, 0.8);
     display: flex;
     flex-direction: column;
+    border-right: 1px solid #40444b;
 }
 
-.server-header {
-    padding: 16px;
-    border-bottom: 1px solid #202225;
-    font-weight: bold;
-}
-
-.channels {
-    flex: 1;
-    padding: 16px;
-}
-
-.channel {
-    padding: 8px;
-    margin: 4px 0;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.channel:hover {
-    background-color: #3c3f45;
-}
-
-.channel.active {
-    background-color: #42464d;
-}
-
-/* Main Chat Area */
 .main {
     flex: 1;
     display: flex;
     flex-direction: column;
 }
 
+/* Server Header */
+.server-header {
+    padding: 20px;
+    background: #5865f2;
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center;
+}
+
+/* Now Playing Section */
+.now-playing {
+    padding: 15px;
+    border-bottom: 1px solid #40444b;
+}
+
+.now-playing h4 {
+    color: #5865f2;
+    margin-bottom: 10px;
+}
+
+.now-playing-item {
+    padding: 8px;
+    margin: 5px 0;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    font-size: 12px;
+}
+
+.now-playing-song {
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.now-playing-artist {
+    color: #b9bbbe;
+    font-size: 11px;
+}
+
+/* Compatibility Section */
+.compatibility {
+    padding: 15px;
+    border-bottom: 1px solid #40444b;
+}
+
+.compatibility-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+    font-size: 12px;
+}
+
+.compatibility-score {
+    color: #57f287;
+    font-weight: bold;
+}
+
+/* User Info */
+.user-info {
+    padding: 15px;
+    margin-top: auto;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.user-info .username {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.spotify-status {
+    font-size: 12px;
+    color: #1db954;
+}
+
+/* Chat Area */
 .chat-header {
-    padding: 16px;
-    border-bottom: 1px solid #202225;
+    padding: 20px;
+    background: rgba(47, 49, 54, 0.8);
+    border-bottom: 1px solid #40444b;
     font-weight: bold;
 }
 
 .messages {
     flex: 1;
-    padding: 16px;
+    padding: 20px;
     overflow-y: auto;
+    background: rgba(30, 31, 34, 0.6);
 }
 
 .message {
-    margin-bottom: 16px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.message.own-message {
+    background: rgba(88, 101, 242, 0.2);
+    border-left: 3px solid #5865f2;
 }
 
 .message-user {
     font-weight: bold;
-    color: #fff;
+    color: #5865f2;
+    margin-bottom: 5px;
 }
 
 .message-content {
-    margin-top: 4px;
+    color: #dcddde;
+    line-height: 1.4;
+}
+
+.message-time {
+    font-size: 11px;
+    color: #72767d;
+    margin-top: 5px;
+}
+
+.system-message {
+    background: rgba(255, 215, 0, 0.1);
+    border-left: 3px solid #ffd700;
+    text-align: center;
+}
+
+.shared-song-message {
+    background: rgba(29, 185, 84, 0.1);
+    border-left: 3px solid #1db954;
+}
+
+.shared-song {
+    margin: 8px 0;
+}
+
+.song-title {
+    font-weight: bold;
+    color: #1db954;
+}
+
+.song-artist {
+    color: #b9bbbe;
+    font-size: 14px;
+}
+
+.song-link {
+    color: #5865f2;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.song-link:hover {
+    text-decoration: underline;
 }
 
 /* Input Area */
 .input-area {
-    padding: 16px;
-    background-color: #40444b;
-    border-radius: 8px;
-    margin: 16px;
+    padding: 20px;
+    background: rgba(47, 49, 54, 0.8);
+    border-top: 1px solid #40444b;
+}
+
+.input-container {
+    display: flex;
+    gap: 10px;
+    align-items: center;
 }
 
 .message-input {
-    width: 100%;
-    background-color: transparent;
+    flex: 1;
+    background: #40444b;
     border: none;
-    color: #dcddde;
+    color: #ffffff;
+    padding: 15px;
+    border-radius: 8px;
     font-size: 16px;
-    outline: none;
 }
 
 .message-input::placeholder {
     color: #72767d;
 }
 
+.message-input:focus {
+    outline: none;
+}
+
 /* Buttons */
 .btn {
-    background-color: #5865f2;
+    background: #5865f2;
     color: white;
     border: none;
-    padding: 8px 16px;
-    border-radius: 4px;
+    padding: 12px 20px;
+    border-radius: 8px;
     cursor: pointer;
-    margin: 4px;
+    font-weight: bold;
+    transition: background 0.2s;
 }
 
 .btn:hover {
-    background-color: #4752c4;
+    background: #4752c4;
+}
+
+.btn-spotify {
+    background: #1db954;
+}
+
+.btn-spotify:hover {
+    background: #1ed760;
+}
+
+.btn-share {
+    background: #9146ff;
+}
+
+.btn-share:hover {
+    background: #7c3aed;
 }
 
 .btn-secondary {
-    background-color: #4f545c;
+    background: #4f545c;
 }
 
 .btn-secondary:hover {
-    background-color: #5d6269;
+    background: #5d6269;
 }
 
-/* Login Form need to add connecting email allow all emails */
-.login-form {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #2f3136;
-    padding: 32px;
-    border-radius: 8px;
-    text-align: center;
-}
-
-.login-input {
-    background-color: #40444b;
-    border: none;
-    color: #dcddde;
-    padding: 12px;
-    border-radius: 4px;
-    margin: 8px 0;
-    width: 100%;
-}
-
+/* Utility */
 .hidden {
     display: none;
+}
+
+/* Scrollbar */
+.messages::-webkit-scrollbar {
+    width: 8px;
+}
+
+.messages::-webkit-scrollbar-track {
+    background: #2f3136;
+}
+
+.messages::-webkit-scrollbar-thumb {
+    background: #484b52;
+    border-radius: 4px;
+}
+
+.messages::-webkit-scrollbar-thumb:hover {
+    background: #5d6269;
 }
