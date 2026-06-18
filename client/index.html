@@ -1,70 +1,75 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="utf-8">
     <title>Music Messenger 🎵</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Login Form -->
+    <!-- Auth: register / login -->
     <div id="loginForm" class="login-form">
         <h2>🎵 Music Messenger</h2>
-        <p>Connect with friends through music</p>
-        <input type="text" id="usernameInput" class="login-input" placeholder="Enter your username" maxlength="32">
-        <button id="loginBtn" class="btn">Join Music Chat</button>
+        <p>Meet people who like the music you like</p>
+        <input type="text" id="usernameInput" class="login-input" placeholder="Username" maxlength="32" autocomplete="username">
+        <input type="password" id="passwordInput" class="login-input" placeholder="Password" autocomplete="current-password">
+        <input type="password" id="roomKeyInput" class="login-input" placeholder="Room passphrase (encrypts chat)" autocomplete="off">
+        <p class="hint">The room passphrase encrypts chat in your browser. Everyone using the same passphrase can read each other; the server never sees it.</p>
+        <div class="input-container">
+            <button id="loginBtn" class="btn" style="flex:1">Log In</button>
+            <button id="registerBtn" class="btn btn-secondary" style="flex:1">Register</button>
+        </div>
+        <div id="authError" class="auth-error"></div>
     </div>
 
     <!-- Main App -->
     <div id="app" class="hidden">
-        <!-- Sidebar -->
         <div class="sidebar">
-            <div class="server-header">
-                🎵 Music Messenger
+            <div class="server-header">🎵 Music Messenger</div>
+
+            <!-- Your music profile -->
+            <div class="now-playing">
+                <h4>🎚️ Your Taste</h4>
+                <input type="text" id="artistsInput" class="login-input" style="margin:6px 0;font-size:13px;padding:8px" placeholder="Top artists (comma separated)">
+                <input type="text" id="genresInput" class="login-input" style="margin:6px 0;font-size:13px;padding:8px" placeholder="Genres (comma separated)">
+                <button id="saveProfileBtn" class="btn" style="width:100%">Save Taste</button>
             </div>
-            
-            <!-- Now Playing Section -->
+
+            <!-- Now Playing -->
             <div class="now-playing">
                 <h4>🎧 Now Playing</h4>
                 <div id="nowPlayingList"></div>
+                <div class="input-container" style="margin-top:8px">
+                    <input type="text" id="nowPlayingInput" class="login-input" style="font-size:13px;padding:8px" placeholder="Song — Artist">
+                    <button id="setNowPlayingBtn" class="btn">Set</button>
+                </div>
             </div>
-            
-            <!-- Compatibility Section -->
+
+            <!-- Compatibility + recommendations -->
             <div class="compatibility">
                 <div id="compatibilityScores">
                     <h4>Music Compatibility</h4>
-                    <div class="compatibility-item">
-                        <div>Connect Spotify to see compatibility</div>
-                    </div>
+                    <div class="compatibility-item"><div>Save your taste to see matches</div></div>
                 </div>
+                <div id="recommendations" style="margin-top:12px"></div>
             </div>
-            
-            <!-- User Info -->
+
             <div class="user-info">
                 <div class="username" id="currentUserDisplay">User</div>
-                <div class="spotify-status" id="spotifyStatus">Spotify: Not Connected</div>
-                <button id="connectSpotifyBtn" class="btn btn-spotify" style="margin-top: 10px; width: 100%;">
-                    Connect Spotify
-                </button>
-                <button id="shareCurrentSongBtn" class="btn btn-share" style="margin-top: 5px; width: 100%;">
-                    Share Current Song
-                </button>
+                <div class="spotify-status">🔒 Chat end-to-end encrypted</div>
+                <button id="shareCurrentSongBtn" class="btn btn-share" style="margin-top:8px;width:100%">Share Current Song</button>
             </div>
         </div>
 
-        <!-- Main Chat Area -->
         <div class="main">
-            <div class="chat-header">
-                # music-chat
-            </div>
-            
+            <div class="chat-header"># music-chat</div>
             <div id="messages" class="messages">
                 <div class="message system-message">
-                    <div class="message-content">Welcome to Music Messenger! Connect Spotify to share what you're listening to.</div>
+                    <div class="message-content">Welcome! Save your taste to find compatible people, then chat — messages are encrypted in your browser.</div>
                 </div>
             </div>
-            
             <div class="input-area">
                 <div class="input-container">
-                    <input type="text" id="messageInput" class="message-input" placeholder="Type a message or share music..." maxlength="2000">
+                    <input type="text" id="messageInput" class="message-input" placeholder="Type an encrypted message..." maxlength="2000">
                     <button id="sendBtn" class="btn">Send</button>
                 </div>
             </div>

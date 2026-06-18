@@ -1,0 +1,13 @@
+{
+  "name": "music-messenger-server",
+  "version": "1.0.0",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node server.js --selftest"
+  },
+  "dependencies": {
+    "ws": "^8.18.0"
+  }
+}

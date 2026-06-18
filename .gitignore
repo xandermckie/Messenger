@@ -1,0 +1,5 @@
+node_modules/
+server/messenger.db
+server/key.pem
+server/cert.pem
+*.exe

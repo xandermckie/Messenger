@@ -280,6 +280,25 @@ body {
     background: #5d6269;
 }
 
+.hint {
+    font-size: 11px;
+    color: #b9bbbe;
+    margin: 4px 0 12px;
+    line-height: 1.4;
+}
+
+.auth-error {
+    color: #ed4245;
+    font-size: 13px;
+    margin-top: 12px;
+    min-height: 16px;
+}
+
+#recommendations h4 {
+    color: #5865f2;
+    margin-bottom: 8px;
+}
+
 /* Utility */
 .hidden {
     display: none;
